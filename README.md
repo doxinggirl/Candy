@@ -62,6 +62,7 @@
 ---
 ### 💻️ System Requirements
 - ``Python 3.1x``
+- `Git`
 - `Windows 10-11`
 - ``RAM 8+``
 ---
