@@ -16,7 +16,6 @@ if %errorlevel% == 9009 (
     exit
 )
 
-pip uinstall -r interact.txt
 pip install -r requirements.txt
 cls
 
