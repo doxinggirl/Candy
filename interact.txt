@@ -1,0 +1,11 @@
+colorama
+pyfiglet
+pystyle
+rich
+requests
+psutil
+pywin32
+wmi
+pyautogui
+pycryptodome
+winshell
