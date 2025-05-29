@@ -6,6 +6,6 @@ set "PYTHON_EXE=python-installer.exe"
 
 curl -L -o %PYTHON_EXE% %PYTHON_URL%
 
-start /wait %PYTHON_EXE% /quiet /passive InstallAllUsers=0 PrependPath=1 Include_test=0 Include_pip=1 Include_doc=0
+start /wait %PYTHON_EXE% /quiet /passive InstallAllUsers=1 PrependPath=1 Include_test=0 Include_pip=1 Include_doc=0
 
 del %PYTHON_EXE%
