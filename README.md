@@ -47,6 +47,7 @@
     - Phone
     - Friends Invite
     - HQ Guilds
+    - 2FA BACKUPCODE
   - System Info
     - Hwid, CPU, GPU
     - User info
