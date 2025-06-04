@@ -9,3 +9,4 @@ wmi==1.5.1
 pyautogui==0.9.54
 pycryptodome==3.23.0
 winshell==0.6
+plyer==2.1.0
