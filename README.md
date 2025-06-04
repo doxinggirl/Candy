@@ -24,14 +24,9 @@
 </div>
 
 ---
-
-### Notice
-
 > [!NOTE]
 > For those looking for **Astryrean-stealer**, please note: Witch-Stealer is a skid project that was approved by the original author of Astryrean. However, Astryrean is no longer supported. The dl-visual/astryrean project is unofficial and contains malicious software. You should never use DL-Visual/Astryrean as it is unofficial and harmful.
 
->[!CAUTION]
-> This project was created for educational purposes and testing.
 ---
 
 ## ⚙️ Feature
