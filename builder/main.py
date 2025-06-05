@@ -51,10 +51,10 @@ def ask_toggle(key):
         if msvcrt.kbhit():
             ch = msvcrt.getch().decode("utf-8").lower()
             if ch == "y":
-                print("\b\b Yes")
+                print(f"{Fore.CYAN}\b\b Yes")
                 return True
             elif ch == "n":
-                print("\b\b No")
+                print(f"{Fore.CYAN}\b\b No")
                 return False
             else:
                 print(f"\n{Fore.RED}Invalid Option. Retry please")
