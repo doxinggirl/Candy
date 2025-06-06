@@ -41,9 +41,12 @@
     - Hwid, CPU, GPU
     - User info
     - Network
+    - Startup
   - 🎮️ Game
     - Minecraft Session
     - Steam Session
+  - 🔴 Anti
+    - AntiVm
 ---
 
 ## ⌨️ Getting Started!
