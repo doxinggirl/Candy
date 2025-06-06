@@ -45,8 +45,9 @@
   - 🎮️ Game
     - Minecraft Session
     - Steam Session
-  - 🔴 Anti
-    - AntiVm
+  - 🚫 Anti
+    - Anti Vm
+    
 ---
 
 ## ⌨️ Getting Started!
