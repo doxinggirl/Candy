@@ -21,7 +21,7 @@ from datetime import *
 from plyer import notification
 
 from utils.module.Obfuscators import Obfuscators # Restored because obfscator was not the problem
-from utils.module.logger import log_debug, timestamp
+from utils.module.logger import log_debug, timestamp, log_warn, log_error
 
 os.system("cls")
 obf = Obfuscators(include_imports=True, recursion=5)
