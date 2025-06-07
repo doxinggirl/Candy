@@ -79,6 +79,7 @@ class Obfuscators:
     def _layer_base64_zlib(self, code: str) -> str:
         compressed = zlib.compress(code.encode())
         encoded = base64.b64encode(compressed).decode()
+        
         layer = f"""
 import zlib, base64
 exec(zlib.decompress(base64.b64decode("{encoded}")).decode())
