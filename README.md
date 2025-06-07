@@ -74,6 +74,13 @@ Enjoy >:)
 
 ## 🖼️ Preview
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/addadi000/Witch-stealer/refs/heads/main/.github/img/discord1.png" width="500" alt="img" />
+
+  <h1> <h1>
+  <img src="https://raw.githubusercontent.com/addadi000/Witch-stealer/refs/heads/main/.github/img/build.png" width="900" alt="img" />
+</div>
+
 ## 🗑️ Uninstall
 🗑️ Press Win+R, then paste the following paths.
 ```Bash
