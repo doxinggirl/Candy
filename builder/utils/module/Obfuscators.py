@@ -82,6 +82,7 @@ class Obfuscators:
         
         layer = f"""
 import zlib, base64
+# bobux
 exec(zlib.decompress(base64.b64decode("{encoded}")).decode())
 """
         return layer.strip()
