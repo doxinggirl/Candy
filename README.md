@@ -144,6 +144,7 @@ By using this tool, you agree to abide by this disclaimer. If you do not agree w
    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=addadi000/Witch-stealer&type=Date" />
    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=mondaywtf/witch&type=Date" />
  </picture>
+   <img src="https://media1.tenor.com/m/M-foS5falVYAAAAd/speech-bubble-furry.gif">
 </a>
   </ol>
 </details>
