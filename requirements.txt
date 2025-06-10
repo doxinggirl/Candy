@@ -2,7 +2,7 @@ colorama==0.4.6
 pyfiglet==1.0.2
 pystyle==2.9
 rich==14.0.0
-requests==2.32.3
+requests==2.32.4
 psutil==7.0.0
 pywin32==310
 wmi==1.5.1
