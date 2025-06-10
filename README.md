@@ -111,7 +111,12 @@ This project draws inspiration from various infostealers. Special thanks to:
 ---
 
 ## 🔎 Detection Tools
-Detection tools for the Witch Stealer are currently in development It will take at least a week to complete, as even developers are finding it difficult to deobfuscate.<br>
+Dection Tools (43/100)
+🔴 Webhook Spam<br>
+🟢 Webhook Finder<br>
+🟢 Config<br>
+🟡 Webhook Deleter<br>
+
 
 ---
 
