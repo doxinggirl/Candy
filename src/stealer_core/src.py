@@ -445,7 +445,7 @@ def steam():
 def systeminformation():
     hostname = socket.gethostname()
     username = os.getlogin()
-    display_username = win32api.GetUserNameEx(3)
+    display_username = "⚙️We Back Soon!"
 
     c = wmi.WMI()
     GPUm = "Unknown"
