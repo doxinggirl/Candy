@@ -135,6 +135,11 @@ The creator will not provide assistance or support for any misuse of this tool. 
 
 By using this tool, you agree to abide by this disclaimer. If you do not agree with these terms, please do not use the software.
 
+## ✨️ Related Projects
+[addadi000/GASABI (Soon)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)<br>
+[addadi000/Discord-RAT](https://github.com/addadi000/Discord-RAT-1.0)<br>
+[addadi000/Roblox-alts](https://github.com/addadi000/roblox-alt)<br>
+[addadi000/sketch](https://github.com/addadi000/sketch) 👀🥛<br>
 <details>
   <summary>👍️ <strong>Project Information</strong></summary>
   <ol>
