@@ -49,7 +49,13 @@
     - Anti Vm
     
 ---
+# ⚙️ Coming Soon Feature!✨️
+- 💉 ALL
+  - Discord webhook=❌️ Discord Bot=✅️
+  - Injection
+  - Cookie Steal
 
+---
 ## ⌨️ Getting Started!
 - Use for educational purposes only.
 ---
