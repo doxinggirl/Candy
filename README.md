@@ -90,16 +90,6 @@ Enjoy >:)
 
 ---
 
-## 🗑️ Uninstall
-🗑️ Press Win+R, then paste the following paths.
-```Bash
-C:\Users\%username%\AppData\Local\witch
-```
-🎉 If you see an error message, it means your PC is not infected with Witch.
-<p>🗑️ If you see a folder and an infected.txt file, your PC is infected with Witch. Please change your Discord password and take other necessary precautions immediately.
-
----
-
 ## 🤝 Contributing
 
 Thank you for your interest in contributing to this project! Whether you want to **Report a Bug**, **Submit a Pull Request**, or **Suggest an Improvement**, your input is truly appreciated. To make the process easier for everyone, please check out our **[Contributing Guidelines](CONTRIBUTING.md)**.
