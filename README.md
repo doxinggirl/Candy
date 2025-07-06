@@ -60,7 +60,7 @@
 - Use for educational purposes only.
 ---
 ### 💻️ System Requirements
-- ``Python 3.10.x``
+- ``Python 3.12.x``
 - `Git`
 - `Windows 10-11`
 - ``RAM 8+``
