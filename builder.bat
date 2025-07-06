@@ -2,9 +2,9 @@
 title Witch
 color 0d
 
-python --version 2>&1 | findstr " 3.11" >nul
-if %errorlevel% == 0 (
-    echo python 3.11.x and up are not supported by Witch. Please downgrade to python 3.10.0.
+python --version 2>&1 | findstr " 3.12" >nul
+if not %errorlevel% == 0 (
+    echo Only Python 3.12.x is supported by Witch. Please install Python 3.12.0.
     pause
     exit
 )
@@ -19,5 +19,5 @@ if %errorlevel% == 9009 (
 pip install -r requirements.txt
 cls
 
-py -3.10 builder/main.py
+py -3.12 builder/main.py
 pause
