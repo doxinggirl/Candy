@@ -84,7 +84,8 @@ def update_config_in_file(filepath, updated_config, webhook_url=None):
             content = re.sub(r'"webhook":\s*"[^"]*"', f'"webhook": \"{webhook_url}\"', content)
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(content)
-        log_debug(f"Config Save Successfully.")
+        log_debug(f"GET")
+        log_debug(f"Config: \n Hook: {webhook_url}| {key}: value: {value}")
     except Exception as e:
         log_error(f"Error updating config in {filepath}: {e}")
         sys.exit(1)
