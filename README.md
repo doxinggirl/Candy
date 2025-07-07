@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://cdn.discordapp.com/attachments/1348499307015438427/1380062075405074462/discord-avatar-512-14PL5.png?ex=68428277&is=684130f7&hm=c04f339d6a92382d8640494544b673cf9e968af6884016c640c5c7a577208a6f&" width="200" alt="img" />
+  <img src="https://github.com/nojumpdelay/Candy-stealer/blob/main/.github/img/Candy%20(1).png?raw=true&" width="700" alt="img" />
   <h2><a href="https://github.com/addadi000/Candy-stealer">Candy</a></h2>
 </div>
 
