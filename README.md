@@ -120,9 +120,9 @@ Dection Tools (43/100)
 ---
 
 
-### ⚠️ Disclaimer
+## ⚠️ Disclaimer
 
-## 👤 User Accountability
+### 👤 User Accountability
 
 By utilizing this tool, you take full responsibility for your actions. The creator disclaims any liability for misuse. It is your responsibility to ensure that your use of this software complies with all applicable laws and regulations.
 
