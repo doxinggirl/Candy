@@ -18,6 +18,8 @@
   </a>
   <a aria-label="Stars" href="https://github.com/addadi000/Witch-stealer/stargazers">
     <img src="https://img.shields.io/github/stars/addadi000/Witch-stealer?color=ffffff&logo=github&style=flat-square&label=Stars">
+    <br>
+    <img src="https://img.shields.io/github/followers/nojumpdelay?color=%23000000&label=Follow%20me"> 
   </a>
 </div>
 
