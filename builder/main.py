@@ -150,7 +150,7 @@ def build():
 def main():
     webhook, config = ask_inputs()
     update_config_in_file(PATH, config, webhook)
-    # obf.execute(PATH)
+    obf.execute(PATH)
     build()
 
 if __name__ == "__main__":    
