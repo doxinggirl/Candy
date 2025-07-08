@@ -1,5 +1,5 @@
 @echo off
-title Witch
+title M90jfCXxZVcxx34rDDggGHHSasrfghgqf
 color 0d
 
 python --version 2>&1 | findstr " 3.12" >nul
