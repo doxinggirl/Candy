@@ -1,6 +1,6 @@
 <div align="center">
+  <h1><a href="https://github.com/addadi000/Candy-stealer">Candy</a></h1>
   <img src="https://github.com/nojumpdelay/Candy-stealer/blob/main/.github/img/Candy%20(1).png?raw=true&" width="700" alt="img" />
-  <h2><a href="https://github.com/addadi000/Candy-stealer">Candy</a></h2>
 </div>
 
 <div align="center">
