@@ -157,11 +157,10 @@ We, the development team, collect your data and other information for developmen
     <p> Star History
 <a href="https://www.star-history.com/#mondaywtf/witch&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=addadi000/Witch-stealer&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=addadi000/Witch-stealer&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=mondaywtf/witch&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=doxinggirl/Candy-stealer&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=doxinggirl/Candy-stealer&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=doxinggirl/witch&type=Date" />
  </picture>
-   <img src="https://media1.tenor.com/m/M-foS5falVYAAAAd/speech-bubble-furry.gif">
 </a>
   </ol>
 </details>
