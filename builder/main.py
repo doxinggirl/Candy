@@ -104,18 +104,16 @@ def update_config_in_file(filepath, updated_config, webhook_url=None):
         sys.exit(1)
 
 def build():
-    pyinstaller_release_url = "https://github.com/pyinstaller/pyinstaller/archive/refs/tags/v5.13.1.zip"
+    pyinstaller = "https://github.com/pyinstaller/pyinstaller/archive/refs/tags/v5.13.1.zip"
 
     try:
         with tempfile.TemporaryDirectory() as tmpdir:
             zip_path = os.path.join(tmpdir, "pyinstaller.zip")
-            logging.debug(f"Downloading PyInstaller from GitHub: {pyinstaller_release_url}")
-            r = requests.get(pyinstaller_release_url, stream=True)
+            r = requests.get(pyinstaller, stream=True)
             r.raise_for_status()
             with open(zip_path, "wb") as f:
                 for chunk in r.iter_content(chunk_size=8192):
                     f.write(chunk)
-            logging.debug("Download complete, extracting and installing...")
 
             with zipfile.ZipFile(zip_path, 'r') as zip_ref:
                 zip_ref.extractall(tmpdir)
