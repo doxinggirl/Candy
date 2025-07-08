@@ -19,7 +19,10 @@
   <a aria-label="Stars" href="https://github.com/nojumpdelay/Candy-stealer/stargazers">
     <img src="https://img.shields.io/github/stars/nojumpdelay/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=Stars">
     <br>
+  </a>
+  <a aria-label="Follow" href="https://github.com/nojumpdelay/">
     <img src="https://img.shields.io/github/followers/nojumpdelay?color=%23000000&label=Follow%20me"> 
+    <br>
   </a>
 </div>
 
