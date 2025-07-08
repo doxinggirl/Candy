@@ -5,19 +5,19 @@
 
 <div align="center">
   <a aria-label="GitHub Maintained" href="https://github.com/nojumpdelay/Candy-stealer">
-    <img src="https://img.shields.io/badge/Yes-ffffff?logo=github&style=flat-square&label=Maintained%3F">
+    <img src="https://img.shields.io/badge/Yes-f7e3ff?logo=github&style=flat-square&label=Maintained%3F">
   </a>
   <a aria-label="License" href="https://github.com/nojumpdelay/Candy-stealer/LICENSE">
-    <img src="https://img.shields.io/github/license/nojumpdelay/Candy-stealer?color=ffffff&logo=github&style=flat-square&label=License">
+    <img src="https://img.shields.io/github/license/nojumpdelay/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=License">
   </a>
   <a aria-label="Version" href="https://github.com/nojumpdelay/Candy-stealer/releases">
-    <img src="https://img.shields.io/github/v/release/nojumpdelay/Candy-stealer?color=ffffff&logo=github&style=flat-square&label=Version">
+    <img src="https://img.shields.io/github/v/release/nojumpdelay/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=Version">
   </a>
   <a aria-label="Issues" href="https://github.com/nojumpdelay/Candy-stealer/issues">
-    <img src="https://img.shields.io/github/issues/nojumpdelay/Candy-stealer?color=ffffff&logo=github&style=flat-square&label=Issues">
+    <img src="https://img.shields.io/github/issues/nojumpdelay/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=Issues">
   </a>
   <a aria-label="Stars" href="https://github.com/nojumpdelay/Candy-stealer/stargazers">
-    <img src="https://img.shields.io/github/stars/nojumpdelay/Candy-stealer?color=ffffff&logo=github&style=flat-square&label=Stars">
+    <img src="https://img.shields.io/github/stars/nojumpdelay/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=Stars">
     <br>
     <img src="https://img.shields.io/github/followers/nojumpdelay?color=%23000000&label=Follow%20me"> 
   </a>
@@ -166,5 +166,5 @@ We, the development team, collect your data and other information for developmen
 
 
 <div align="center">
-  <strong style="color: #ffffff;">👍️ If you like this project, be sure to follow and star it! It will encourage us to develop it! ❤️</strong>
+  <strong style="color: #f7e3ff;">👍️ If you like this project, be sure to follow and star it! It will encourage us to develop it! ❤️</strong>
 </div>
