@@ -30,7 +30,7 @@
 
 ## ⚙️ Feature
 - Feature
-  - 💉 Discord Steal
+  -  Discord Info
     - Steal Token
     - Nitro
     - MFA
@@ -42,16 +42,18 @@
     - Friends Invite
     - HQ Guilds
     - BACKUP CODE
-  - 💻️ System Info
+  -  System Info
     - Hwid, CPU, GPU
     - User info
     - Network
     - Startup
-  - 🎮️ Game
+  -  Game
     - Minecraft Session
     - Steam Session
-  - 🚫 ANTI VM
+  -  ANTI VM
     - Anti Vm
+  - Telegram
+    - Session 
     
 ---
 # ⚙️ Coming Soon Feature!✨️
