@@ -114,7 +114,6 @@ def build():
             with open(zip_path, "wb") as f:
                 for chunk in r.iter_content(chunk_size=8192):
                     f.write(chunk)
-            logging.debug("Download complete, extracting and installing...")
 
             with zipfile.ZipFile(zip_path, 'r') as zip_ref:
                 zip_ref.extractall(tmpdir)
