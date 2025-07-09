@@ -1,5 +1,5 @@
 @echo off
-title M90jfCXxZVcxx34rDDggGHHSasrfghgqf
+title Candy
 color 0d
 
 python --version 2>&1 | findstr " 3.12" >nul
@@ -16,6 +16,8 @@ if %errorlevel% == 9009 (
     exit
 )
 
+
+pip uninstall -y pyinstaller
 pip install -r requirements.txt
 cls
 
