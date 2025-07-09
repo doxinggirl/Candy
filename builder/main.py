@@ -14,7 +14,7 @@ from rich.console import Console
 import logging
 from rich.logging import RichHandler
 
-from utils.module.Obfuscators import Obfuscators
+from utils.Obfuscators import Obfuscators
 
 init(autoreset=True)
 os.system("cls")
