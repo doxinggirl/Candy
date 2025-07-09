@@ -58,10 +58,7 @@ def ask_inputs():
             "type": "input",
             "name": "webhook",
             "message": "Enter your Discord Webhook URL:",
-            "validate": lambda x: (
-                True if re.match(r"^https://(canary\.|ptb\.)?(discord(app)?\.com)/api/webhooks/\d+/[\w-]+$", x)
-                else "Invalid Discord Webhook URL"
-            ),
+            "validate": (lambda x: False if re.match(r"https://(canary.|ptb.)?(discord.com|discordapp.com)/api/webhooks/\d+/\S+", x) is None else True)
         },
     ]
 
