@@ -90,7 +90,6 @@ Enjoy >:)
 ## 🖼️ Preview
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/doxinggirl/Candy-stealer/refs/heads/main/.github/img/discord1.png" width="500" alt="img" />
 
   <h1> <h1>
   <img src="https://github.com/doxinggirl/Candy-stealer/blob/main/.github/img/image.png?raw=true" width="900" alt="img" />
