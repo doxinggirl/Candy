@@ -171,3 +171,6 @@ We, the development team, collect your data and other information for developmen
 <div align="center">
   <strong style="color: #f7e3ff;">👍️ If you like this project, be sure to follow and star it! It will encourage us to develop it! ❤️</strong>
 </div>
+
+
+by: ! 3#@
