@@ -5,7 +5,7 @@
 
 <div align="center">
   <a aria-label="GitHub Maintained" href="https://github.com/doxinggirl/Candy-stealer">
-    <img src="https://img.shields.io/badge/Archive-f7e3ff?logo=github&style=flat-square&label=Maintained%3F">
+    <img src="https://img.shields.io/badge/Archived-f7e3ff?logo=github&style=flat-square&label=Maintained%3F">
   </a>
   <a aria-label="License" href="https://github.com/doxinggirl/Candy-stealer/LICENSE">
     <img src="https://img.shields.io/github/license/doxinggirl/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=License">
@@ -26,6 +26,31 @@
   </a>
 </div>
 
+---
+# 🔴There are unread messages!🔴
+
+```
+[MESSAGE]
+Hello everyone, I am the developer of Candy-Stealer.
+
+I am permanently discontinuing Candy-stealer.
+One of the reasons is that I have lost motivation.
+The second reason is that I have seen users abusing Candy-stealer.
+Originally, Candy-stealer was created for educational purposes.
+This is not what I intended or wanted.
+
+[What happens if it is discontinuing?]
+If Discord changes the file location or encryption type, Candy-stealer will not make any updates
+Simply put, you will not be able to receive updates in the future
+
+[what to do now]
+I might develop a Mod Menu, or maybe a Discord-related tool.
+
+[MESSAGE 2]
+Thank you for ever using candy-stealer for educational purposes!
+Good Bye!
+
+```
 ---
 
 ## ⚙️ Feature
