@@ -5,7 +5,7 @@
 
 <div align="center">
   <a aria-label="GitHub Maintained" href="https://github.com/doxinggirl/Candy-stealer">
-    <img src="https://img.shields.io/badge/Yes-f7e3ff?logo=github&style=flat-square&label=Maintained%3F">
+    <img src="https://img.shields.io/badge/Archive-f7e3ff?logo=github&style=flat-square&label=Maintained%3F">
   </a>
   <a aria-label="License" href="https://github.com/doxinggirl/Candy-stealer/LICENSE">
     <img src="https://img.shields.io/github/license/doxinggirl/Candy-stealer?color=f7e3ff&logo=github&style=flat-square&label=License">
